@@ -1,0 +1,15 @@
+C:\Visual Studio\Sınav Notları\Sınav Notları\bin\Debug\Sınav Notları.exe.config
+C:\Visual Studio\Sınav Notları\Sınav Notları\bin\Debug\Sınav Notları.exe
+C:\Visual Studio\Sınav Notları\Sınav Notları\bin\Debug\Sınav Notları.pdb
+C:\Visual Studio\Sınav Notları\Sınav Notları\bin\Debug\EntityFramework.dll
+C:\Visual Studio\Sınav Notları\Sınav Notları\bin\Debug\EntityFramework.SqlServer.dll
+C:\Visual Studio\Sınav Notları\Sınav Notları\bin\Debug\EntityFramework.xml
+C:\Visual Studio\Sınav Notları\Sınav Notları\bin\Debug\EntityFramework.SqlServer.xml
+C:\Visual Studio\Sınav Notları\Sınav Notları\obj\Debug\Sınav Notları.csprojAssemblyReference.cache
+C:\Visual Studio\Sınav Notları\Sınav Notları\obj\Debug\Sınav_Notları.Form1.resources
+C:\Visual Studio\Sınav Notları\Sınav Notları\obj\Debug\Sınav_Notları.Properties.Resources.resources
+C:\Visual Studio\Sınav Notları\Sınav Notları\obj\Debug\Sınav Notları.csproj.GenerateResource.cache
+C:\Visual Studio\Sınav Notları\Sınav Notları\obj\Debug\Sınav Notları.csproj.CoreCompileInputs.cache
+C:\Visual Studio\Sınav Notları\Sınav Notları\obj\Debug\Sınav Notları.csproj.CopyComplete
+C:\Visual Studio\Sınav Notları\Sınav Notları\obj\Debug\Sınav Notları.exe
+C:\Visual Studio\Sınav Notları\Sınav Notları\obj\Debug\Sınav Notları.pdb

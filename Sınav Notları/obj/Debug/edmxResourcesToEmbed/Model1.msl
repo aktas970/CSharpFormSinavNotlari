@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ismailak_EntityModelStoreContainer" CdmEntityContainer="ismailak_EntityEntities">
+    <EntitySetMapping Name="Tbl_dersler">
+      <EntityTypeMapping TypeName="ismailak_EntityModel.Tbl_dersler">
+        <MappingFragment StoreEntitySet="Tbl_dersler">
+          <ScalarProperty Name="dersid" ColumnName="dersid" />
+          <ScalarProperty Name="dersad" ColumnName="dersad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_kulüpler">
+      <EntityTypeMapping TypeName="ismailak_EntityModel.Tbl_kulüpler">
+        <MappingFragment StoreEntitySet="Tbl_kulüpler">
+          <ScalarProperty Name="kulupid" ColumnName="kulupid" />
+          <ScalarProperty Name="kulupad" ColumnName="kulupad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_notlar">
+      <EntityTypeMapping TypeName="ismailak_EntityModel.Tbl_notlar">
+        <MappingFragment StoreEntitySet="Tbl_notlar">
+          <ScalarProperty Name="notid" ColumnName="notid" />
+          <ScalarProperty Name="ogr" ColumnName="ogr" />
+          <ScalarProperty Name="ders" ColumnName="ders" />
+          <ScalarProperty Name="sınav1" ColumnName="sınav1" />
+          <ScalarProperty Name="sınav2" ColumnName="sınav2" />
+          <ScalarProperty Name="sınav3" ColumnName="sınav3" />
+          <ScalarProperty Name="ortalama" ColumnName="ortalama" />
+          <ScalarProperty Name="durum" ColumnName="durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ogrenci">
+      <EntityTypeMapping TypeName="ismailak_EntityModel.Tbl_ogrenci">
+        <MappingFragment StoreEntitySet="Tbl_ogrenci">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="fotograf" ColumnName="fotograf" />
+          <ScalarProperty Name="ogrkulup" ColumnName="ogrkulup" />
+          <ScalarProperty Name="sehir" ColumnName="sehir" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="kulupler" FunctionName="ismailak_EntityModel.Store.kulupler">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ismailak_EntityModel.kulupler_Result">
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="kulupad" ColumnName="kulupad" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="notlistesi" FunctionName="ismailak_EntityModel.Store.notlistesi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ismailak_EntityModel.notlistesi_Result">
+          <ScalarProperty Name="notid" ColumnName="notid" />
+          <ScalarProperty Name="Ad_Soyad" ColumnName="Ad Soyad" />
+          <ScalarProperty Name="dersad" ColumnName="dersad" />
+          <ScalarProperty Name="sınav1" ColumnName="sınav1" />
+          <ScalarProperty Name="sınav2" ColumnName="sınav2" />
+          <ScalarProperty Name="sınav3" ColumnName="sınav3" />
+          <ScalarProperty Name="ortalama" ColumnName="ortalama" />
+          <ScalarProperty Name="durum" ColumnName="durum" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ismailak_EntityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tbl_dersler">
+    <Key>
+      <PropertyRef Name="dersid" />
+    </Key>
+    <Property Name="dersid" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dersad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tbl_notlar" Relationship="Self.FK_Tbl_notlar_Tbl_dersler" FromRole="Tbl_dersler" ToRole="Tbl_notlar" />
+  </EntityType>
+  <EntityType Name="Tbl_kulüpler">
+    <Key>
+      <PropertyRef Name="kulupid" />
+    </Key>
+    <Property Name="kulupid" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kulupad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tbl_notlar">
+    <Key>
+      <PropertyRef Name="notid" />
+    </Key>
+    <Property Name="notid" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ogr" Type="Int16" />
+    <Property Name="ders" Type="Int16" />
+    <Property Name="sınav1" Type="Int16" />
+    <Property Name="sınav2" Type="Int16" />
+    <Property Name="sınav3" Type="Int16" />
+    <Property Name="ortalama" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="durum" Type="Boolean" />
+    <NavigationProperty Name="Tbl_dersler" Relationship="Self.FK_Tbl_notlar_Tbl_dersler" FromRole="Tbl_notlar" ToRole="Tbl_dersler" />
+    <NavigationProperty Name="Tbl_ogrenci" Relationship="Self.FK_Tbl_notlar_Tbl_ogrenci" FromRole="Tbl_notlar" ToRole="Tbl_ogrenci" />
+  </EntityType>
+  <EntityType Name="Tbl_ogrenci">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fotograf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ogrkulup" Type="Int16" />
+    <Property Name="sehir" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tbl_notlar" Relationship="Self.FK_Tbl_notlar_Tbl_ogrenci" FromRole="Tbl_ogrenci" ToRole="Tbl_notlar" />
+  </EntityType>
+  <Association Name="FK_Tbl_notlar_Tbl_dersler">
+    <End Role="Tbl_dersler" Type="Self.Tbl_dersler" Multiplicity="0..1" />
+    <End Role="Tbl_notlar" Type="Self.Tbl_notlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_dersler">
+        <PropertyRef Name="dersid" />
+      </Principal>
+      <Dependent Role="Tbl_notlar">
+        <PropertyRef Name="ders" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_ogrenci_Tbl_kulüpler">
+    <End Role="Tbl_kulüpler" Type="Self.Tbl_kulüpler" Multiplicity="0..1" />
+    <End Role="Tbl_ogrenci" Type="Self.Tbl_ogrenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_kulüpler">
+        <PropertyRef Name="kulupid" />
+      </Principal>
+      <Dependent Role="Tbl_ogrenci">
+        <PropertyRef Name="ogrkulup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_notlar_Tbl_ogrenci">
+    <End Role="Tbl_ogrenci" Type="Self.Tbl_ogrenci" Multiplicity="0..1" />
+    <End Role="Tbl_notlar" Type="Self.Tbl_notlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_ogrenci">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Tbl_notlar">
+        <PropertyRef Name="ogr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ismailak_EntityEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tbl_dersler" EntityType="Self.Tbl_dersler" />
+    <EntitySet Name="Tbl_kulüpler" EntityType="Self.Tbl_kulüpler" />
+    <EntitySet Name="Tbl_notlar" EntityType="Self.Tbl_notlar" />
+    <EntitySet Name="Tbl_ogrenci" EntityType="Self.Tbl_ogrenci" />
+    <AssociationSet Name="FK_Tbl_notlar_Tbl_dersler" Association="Self.FK_Tbl_notlar_Tbl_dersler">
+      <End Role="Tbl_dersler" EntitySet="Tbl_dersler" />
+      <End Role="Tbl_notlar" EntitySet="Tbl_notlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_ogrenci_Tbl_kulüpler" Association="Self.FK_Tbl_ogrenci_Tbl_kulüpler">
+      <End Role="Tbl_kulüpler" EntitySet="Tbl_kulüpler" />
+      <End Role="Tbl_ogrenci" EntitySet="Tbl_ogrenci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_notlar_Tbl_ogrenci" Association="Self.FK_Tbl_notlar_Tbl_ogrenci">
+      <End Role="Tbl_ogrenci" EntitySet="Tbl_ogrenci" />
+      <End Role="Tbl_notlar" EntitySet="Tbl_notlar" />
+    </AssociationSet>
+    <FunctionImport Name="kulupler" ReturnType="Collection(ismailak_EntityModel.kulupler_Result)" />
+    <FunctionImport Name="notlistesi" ReturnType="Collection(ismailak_EntityModel.notlistesi_Result)" />
+  </EntityContainer>
+  <ComplexType Name="kulupler_Result">
+    <Property Type="String" Name="ad" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="soyad" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="kulupad" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="notlistesi_Result">
+    <Property Type="Int16" Name="notid" Nullable="false" />
+    <Property Type="String" Name="Ad_Soyad" Nullable="true" MaxLength="101" />
+    <Property Type="String" Name="dersad" Nullable="true" MaxLength="50" />
+    <Property Type="Int16" Name="sınav1" Nullable="true" />
+    <Property Type="Int16" Name="sınav2" Nullable="true" />
+    <Property Type="Int16" Name="sınav3" Nullable="true" />
+    <Property Type="Decimal" Name="ortalama" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="Boolean" Name="durum" Nullable="true" />
+  </ComplexType>
+</Schema>
